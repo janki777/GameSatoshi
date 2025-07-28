@@ -12,7 +12,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-blend-mode: multiply;
-      color: #111111;
+      color: #4a90e2;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding-top: 100px;
@@ -59,7 +59,7 @@
       background-image: url('GameSatoshi2.jpg');
       background-size: cover;
       background-position: center;
-      color: #4a90e2;
+      color: #000000 !important;
       text-shadow: 0 0 10px rgba(0,0,0,0.7);
     }
     .header img {
@@ -69,6 +69,12 @@
       width: 100px;
       border-radius: 10px;
       box-shadow: 0 0 15px #4a90e2;
+    }
+    .header h1,
+    .header p,
+    .social-links a,
+    .address-block {
+      color: #000000 !important;
     }
     .header h1 {
       font-size: 3rem;
@@ -86,7 +92,6 @@
       font-size: 1rem;
     }
     .social-links a {
-      color: #a3c9ff;
       font-weight: bold;
       margin-right: 10px;
       text-decoration: underline;
@@ -98,7 +103,6 @@
       display: inline-block;
       margin-top: 10px;
       font-family: monospace;
-      color: #4a90e2;
       box-shadow: 0 0 10px #4a90e2;
     }
     .game-card {
@@ -108,9 +112,6 @@
       background-color: rgba(255, 255, 255, 0.07);
       overflow: hidden;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
     .game-card:hover {
       transform: scale(1.05);
@@ -136,9 +137,6 @@
       border-radius: 30px;
       transition: background 0.3s ease;
       box-shadow: 0 0 8px #4a90e2;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
     }
     .btn-play:hover {
       background: #357abd;
@@ -172,8 +170,6 @@
         text-shadow: 0 0 8px #fff, 0 0 16px #4a90e2, 0 0 30px #4a90e2;
       }
     }
-
-    /* Chat Styles */
     #chat-container {
       position: fixed;
       right: 20px;
@@ -239,8 +235,6 @@
     #chat-send-btn:hover {
       background: #357abd;
     }
-
-    /* Game News Section */
     .news-section {
       margin-top: 50px;
       max-width: 900px;
@@ -300,11 +294,11 @@
       <img src="GameSatoshi2.jpg" alt="Game Satoshi Logo" />
       <h1>Welcome to Game Satoshi</h1>
       <p>
-        Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.<br/>
+        Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.  
         Powered by the Game Satoshi ($GAME) ecosystem on Solana. Dive into the future of decentralized gaming!
       </p>
       <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61578506331280" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a>
+        <a href="https://www.facebook.com/profile.php?id=61578506331280" target="_blank">Follow us on Facebook</a>
       </div>
       <div class="address-block mt-3">
         <div><strong>Solana:</strong> 7FiS8Wxf9ntZ3JuoSEu2RLjT2oNVUETNhvdy897xfXkC</div>
@@ -313,30 +307,30 @@
     </header>
 
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4 d-flex">
-        <div class="card game-card w-100">
+      <div class="col-md-6 col-lg-4">
+        <div class="card game-card">
           <img src="game1.jpg" alt="Stack Jump" />
           <div class="card-body">
             <h5>Stack Jump</h5>
-            <a href="game1.html" class="btn-play">Play Now</a>
+            <a href="game1.html" class="btn btn-play">Play Now</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 d-flex">
-        <div class="card game-card w-100">
-          <img src="game2.jpg" alt="Rolling Ball" />
+      <div class="col-md-6 col-lg-4">
+        <div class="card game-card">
+          <img src="game2.jpg" alt="Moto X3M" />
           <div class="card-body">
             <h5>Rolling Ball</h5>
-            <a href="game2.html" class="btn-play">Play Now</a>
+            <a href="game2.html" class="btn btn-play">Play Now</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 d-flex">
-        <div class="card game-card w-100">
+      <div class="col-md-6 col-lg-4">
+        <div class="card game-card">
           <img src="game3.jpg" alt="Tunnel Rush" />
           <div class="card-body">
             <h5>Tunnel Rush</h5>
-            <a href="game3.html" class="btn-play">Play Now</a>
+            <a href="game3.html" class="btn btn-play">Play Now</a>
           </div>
         </div>
       </div>
@@ -367,8 +361,8 @@
     <div id="chat-header">Live Chat</div>
     <div id="chat-messages"></div>
     <div id="chat-input-container">
-      <input id="chat-input" type="text" placeholder="Type your message..." autocomplete="off" />
-      <button id="chat-send-btn" aria-label="Send message">Send</button>
+      <input id="chat-input" type="text" placeholder="Type your message..." />
+      <button id="chat-send-btn">Send</button>
     </div>
   </div>
 
@@ -376,7 +370,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // ضع هنا بيانات Firebase الخاصة بك
     const firebaseConfig = {
       apiKey: "AIzaSy...YourAPIKey...",
       authDomain: "yourproject.firebaseapp.com",
@@ -386,7 +379,6 @@
       messagingSenderId: "1234567890",
       appId: "1:1234567890:web:abcdefghijk"
     };
-
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
@@ -421,17 +413,16 @@
     });
   </script>
 
-  <!-- تراك تو للتواصل المباشر -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/6887447e48705719206420f0/1j18673j7';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6887447e48705719206420f0/1j18673j7';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
   </script>
 
 </body>
