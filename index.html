@@ -7,8 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      background: linear-gradient(135deg, rgba(30, 30, 47, 0.8) 0%, rgba(42, 42, 61, 0.85) 100%), 
-        url('GameSatoshi2.jpg');
+      background: linear-gradient(135deg, rgba(30, 30, 47, 0.8) 0%, rgba(42, 42, 61, 0.85) 100%), url('GameSatoshi2.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -109,6 +108,9 @@
       background-color: rgba(255, 255, 255, 0.07);
       overflow: hidden;
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .game-card:hover {
       transform: scale(1.05);
@@ -134,6 +136,9 @@
       border-radius: 30px;
       transition: background 0.3s ease;
       box-shadow: 0 0 8px #4a90e2;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
     .btn-play:hover {
       background: #357abd;
@@ -282,7 +287,6 @@
       font-size: 1.1rem;
       color: #4a90e2;
     }
-
   </style>
 </head>
 <body>
@@ -296,11 +300,11 @@
       <img src="GameSatoshi2.jpg" alt="Game Satoshi Logo" />
       <h1>Welcome to Game Satoshi</h1>
       <p>
-        Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.  
+        Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.<br/>
         Powered by the Game Satoshi ($GAME) ecosystem on Solana. Dive into the future of decentralized gaming!
       </p>
       <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61578506331280" target="_blank">Follow us on Facebook</a>
+        <a href="https://www.facebook.com/profile.php?id=61578506331280" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a>
       </div>
       <div class="address-block mt-3">
         <div><strong>Solana:</strong> 7FiS8Wxf9ntZ3JuoSEu2RLjT2oNVUETNhvdy897xfXkC</div>
@@ -309,36 +313,35 @@
     </header>
 
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="card game-card">
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card game-card w-100">
           <img src="game1.jpg" alt="Stack Jump" />
           <div class="card-body">
             <h5>Stack Jump</h5>
-            <a href="game1.html" class="btn btn-play">Play Now</a>
+            <a href="game1.html" class="btn-play">Play Now</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card game-card">
-          <img src="game2.jpg" alt="Moto X3M" />
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card game-card w-100">
+          <img src="game2.jpg" alt="Rolling Ball" />
           <div class="card-body">
             <h5>Rolling Ball</h5>
-            <a href="game2.html" class="btn btn-play">Play Now</a>
+            <a href="game2.html" class="btn-play">Play Now</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card game-card">
+      <div class="col-md-6 col-lg-4 d-flex">
+        <div class="card game-card w-100">
           <img src="game3.jpg" alt="Tunnel Rush" />
           <div class="card-body">
             <h5>Tunnel Rush</h5>
-            <a href="game3.html" class="btn btn-play">Play Now</a>
+            <a href="game3.html" class="btn-play">Play Now</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Game News Section -->
     <section class="news-section">
       <h2>Latest Game News</h2>
       <article class="news-article">
@@ -360,22 +363,20 @@
     </section>
   </div>
 
-  <!-- Chat Container -->
   <div id="chat-container">
     <div id="chat-header">Live Chat</div>
     <div id="chat-messages"></div>
     <div id="chat-input-container">
-      <input id="chat-input" type="text" placeholder="Type your message..." />
-      <button id="chat-send-btn">Send</button>
+      <input id="chat-input" type="text" placeholder="Type your message..." autocomplete="off" />
+      <button id="chat-send-btn" aria-label="Send message">Send</button>
     </div>
   </div>
 
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // Firebase config (استخدم حساب Firebase الخاص بك هنا)
+    // ضع هنا بيانات Firebase الخاصة بك
     const firebaseConfig = {
       apiKey: "AIzaSy...YourAPIKey...",
       authDomain: "yourproject.firebaseapp.com",
@@ -386,7 +387,6 @@
       appId: "1:1234567890:web:abcdefghijk"
     };
 
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
@@ -394,7 +394,6 @@
     const chatInput = document.getElementById('chat-input');
     const chatSendBtn = document.getElementById('chat-send-btn');
 
-    // إرسال رسالة
     chatSendBtn.addEventListener('click', () => {
       const msg = chatInput.value.trim();
       if (!msg) return;
@@ -406,7 +405,6 @@
       chatInput.value = '';
     });
 
-    // استماع للرسائل الجديدة
     db.ref('chat/messages').limitToLast(50).on('child_added', snapshot => {
       const msg = snapshot.val();
       const msgEl = document.createElement('div');
@@ -416,7 +414,6 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     });
 
-    // إرسال الرسالة عند الضغط Enter
     chatInput.addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         chatSendBtn.click();
@@ -424,19 +421,18 @@
     });
   </script>
 
-  <!--Start of Tawk.to Script-->
+  <!-- تراك تو للتواصل المباشر -->
   <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6887447e48705719206420f0/1j18673j7';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6887447e48705719206420f0/1j18673j7';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
   </script>
-  <!--End of Tawk.to Script-->
 
 </body>
 </html>
