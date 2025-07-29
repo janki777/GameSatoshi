@@ -44,14 +44,49 @@
     max-width: 900px;
     margin: auto;
   }
-  header img {
+  .header-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    animation: fadeSlideIn 1.5s forwards;
+  }
+  .icon-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .icon-column.left {
+    margin-right: 10px;
+  }
+  .icon-column.right {
+    margin-left: 10px;
+  }
+  .icon-column img {
+    width: 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #74b9ffaa;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeSlideIn 1.5s forwards;
+  }
+  /* تدرج التاخير للصور */
+  .icon-column.left img:nth-child(1) { animation-delay: 0.2s; }
+  .icon-column.left img:nth-child(2) { animation-delay: 0.4s; }
+  .icon-column.left img:nth-child(3) { animation-delay: 0.6s; }
+  .logo {
     width: 140px;
     border-radius: 20px;
     box-shadow: 0 0 30px #74b9ffaa;
     opacity: 0;
     transform: translateY(-30px);
     animation: fadeSlideIn 1.5s forwards;
+    animation-delay: 0.8s;
   }
+  .icon-column.right img:nth-child(1) { animation-delay: 1s; }
+  .icon-column.right img:nth-child(2) { animation-delay: 1.2s; }
+  .icon-column.right img:nth-child(3) { animation-delay: 1.4s; }
+
   @keyframes fadeSlideIn {
     to {
       opacity: 1;
@@ -66,7 +101,7 @@
     letter-spacing: 2px;
     opacity: 0;
     animation: fadeSlideIn 2s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 1.6s;
   }
   header p {
     margin-top: 15px;
@@ -78,13 +113,16 @@
     color: #a3c9ffdd;
     opacity: 0;
     animation: fadeSlideIn 2s forwards;
-    animation-delay: 1s;
+    animation-delay: 1.8s;
   }
   .social-share {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 20px;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 2s;
   }
   .social-share button {
     background: #2c56a0;
@@ -104,6 +142,9 @@
   }
   .social-links {
     margin-top: 25px;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 2.2s;
   }
   .social-links a {
     color: #74b9ff;
@@ -135,6 +176,9 @@
     padding: 10px 20px;
     border-radius: 15px;
     box-shadow: 0 0 15px #74b9ff55;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 2.4s;
   }
   .address-block strong {
     color: #74b9ffdd;
@@ -249,7 +293,19 @@
   </div>
 
   <header>
-    <img src="GameSatoshi2.jpg" alt="Game Satoshi Logo" />
+    <div class="header-wrapper">
+      <div class="icon-column left">
+        <img src="game_icon1.jpg" alt="Game Icon 1" />
+        <img src="game_icon2.jpg" alt="Game Icon 2" />
+        <img src="game_icon3.jpg" alt="Game Icon 3" />
+      </div>
+      <img src="GameSatoshi2.jpg" alt="Game Satoshi Logo" class="logo" />
+      <div class="icon-column right">
+        <img src="game_icon4.jpg" alt="Game Icon 4" />
+        <img src="game_icon5.jpg" alt="Game Icon 5" />
+        <img src="game_icon6.jpg" alt="Game Icon 6" />
+      </div>
+    </div>
     <h1>Welcome to Game Satoshi</h1>
     <p>Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.<br/>
        Powered by the Game Satoshi ($GAME) ecosystem on Solana. Dive into the future of decentralized gaming!</p>
