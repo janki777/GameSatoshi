@@ -17,7 +17,6 @@
     color: #d1e8ff;
     overflow-x: hidden;
   }
-  /* Top marquee banner */
   #top-banner {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -39,11 +38,9 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
   }
-  /* Header */
   header {
     padding: 140px 20px 60px;
     text-align: center;
-    position: relative;
     max-width: 900px;
     margin: auto;
   }
@@ -83,7 +80,28 @@
     animation: fadeSlideIn 2s forwards;
     animation-delay: 1s;
   }
-  /* Social & Addresses */
+  .social-share {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .social-share button {
+    background: #2c56a0;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+  }
+  .social-share button:hover {
+    background: #436ec8;
+  }
   .social-links {
     margin-top: 25px;
   }
@@ -121,7 +139,6 @@
   .address-block strong {
     color: #74b9ffdd;
   }
-  /* Games grid */
   .games-grid {
     max-width: 900px;
     margin: 40px auto 80px;
@@ -168,79 +185,6 @@
     color: #e3eaff;
     box-shadow: 0 0 20px #4f7ac9;
   }
-  /* Footer banner */
-  #bottom-banner {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(90deg, #74b9ff, #436ec8);
-    color: white;
-    font-weight: 600;
-    text-align: center;
-    padding: 15px 0;
-    box-shadow: 0 -5px 15px #436ec833;
-    font-size: 1.1rem;
-    z-index: 9999;
-  }
-  /* Chat box */
-  #chat-container {
-    position: fixed;
-    right: 20px;
-    bottom: 70px;
-    width: 320px;
-    max-height: 450px;
-    background: #0f1f3ddd;
-    border-radius: 15px;
-    box-shadow: 0 0 30px #74b9ffbb;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    font-size: 14px;
-    color: #c6dbff;
-    z-index: 10000;
-  }
-  #chat-header {
-    background: #2c56a0;
-    padding: 12px;
-    font-weight: 700;
-    text-align: center;
-    user-select: none;
-  }
-  #chat-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    background: #142d6f;
-  }
-  #chat-messages div {
-    margin-bottom: 8px;
-  }
-  #chat-input-container {
-    display: flex;
-    border-top: 1px solid #4a7ecb;
-  }
-  #chat-input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    font-size: 14px;
-    background: #0b1b40;
-    color: #c6dbff;
-    outline: none;
-  }
-  #chat-send-btn {
-    background: #74b9ff;
-    border: none;
-    padding: 10px 15px;
-    font-weight: 700;
-    color: #0b2345;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  #chat-send-btn:hover {
-    background: #4f7ac9;
-    color: #e3eaff;
-  }
-  /* News Section */
   .news-section {
     max-width: 900px;
     background: #0e254edd;
@@ -284,13 +228,24 @@
     margin-top: 20px;
     color: #74b9ffcc;
   }
+  #bottom-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg, #74b9ff, #436ec8);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 -5px 15px #436ec833;
+    font-size: 1.1rem;
+    z-index: 9999;
+  }
 </style>
 </head>
 <body>
 
   <div id="top-banner">
-    <span>🎮 Game Satoshi ($GAME) – Free HTML5 Games | Powered by Solana | BTC: bc1qv3pzn8ndf9wyxysgr2ruzl0xrnqhlu76h5fpqf | Latest: "Sony has filed a lawsuit against Tencent in a U.S. court, accusing the upcoming game Light of Motiram of being a direct copy of the Horizon series in terms of design and artistic style. Sony seeks to halt the game's distribution and is demanding financial compensation."
-</span>
+    <span>🎮 Game Satoshi ($GAME) – Free HTML5 Games | Powered by Solana | BTC: bc1qv3pzn8ndf9wyxysgr2ruzl0xrnqhlu76h5fpqf | Latest: "Sony has filed a lawsuit against Tencent in a U.S. court, accusing the upcoming game Light of Motiram of being a direct copy of the Horizon series in terms of design and artistic style. Sony seeks to halt the game's distribution and is demanding financial compensation."</span>
   </div>
 
   <header>
@@ -298,6 +253,13 @@
     <h1>Welcome to Game Satoshi</h1>
     <p>Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.<br/>
        Powered by the Game Satoshi ($GAME) ecosystem on Solana. Dive into the future of decentralized gaming!</p>
+
+    <div class="social-share">
+      <button onclick="shareFacebook()" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i> Share</button>
+      <button onclick="shareTwitter()" aria-label="Share on Twitter"><i class="fab fa-twitter"></i> Tweet</button>
+      <button onclick="shareTelegram()" aria-label="Share on Telegram"><i class="fab fa-telegram-plane"></i> Send</button>
+    </div>
+
     <div class="social-links">
       <a href="https://www.facebook.com/profile.php?id=61578506331280" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-facebook-square"></i> Facebook
@@ -350,67 +312,27 @@
     <p class="news-motivation">Keep playing, keep winning, and stay tuned for more exciting updates!</p>
   </section>
 
-  <div id="chat-container">
-    <div id="chat-header">Live Chat</div>
-    <div id="chat-messages"></div>
-    <div id="chat-input-container">
-      <input id="chat-input" type="text" placeholder="Type your message..." autocomplete="off" />
-      <button id="chat-send-btn">Send</button>
-    </div>
-  </div>
-
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSy...YourAPIKey...",
-      authDomain: "yourproject.firebaseapp.com",
-      databaseURL: "https://yourproject-default-rtdb.firebaseio.com",
-      projectId: "yourproject",
-      storageBucket: "yourproject.appspot.com",
-      messagingSenderId: "1234567890",
-      appId: "1:1234567890:web:abcdefghijk"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-    const chatMessages = document.getElementById('chat-messages');
-    const chatInput = document.getElementById('chat-input');
-    const chatSendBtn = document.getElementById('chat-send-btn');
-    chatSendBtn.addEventListener('click', () => {
-      const msg = chatInput.value.trim();
-      if (!msg) return;
-      const newMsgRef = db.ref('chat/messages').push();
-      newMsgRef.set({ text: msg, timestamp: Date.now() });
-      chatInput.value = '';
-    });
-    db.ref('chat/messages').limitToLast(50).on('child_added', snapshot => {
-      const msg = snapshot.val();
-      const msgEl = document.createElement('div');
-      const time = new Date(msg.timestamp).toLocaleTimeString();
-      msgEl.textContent = `[${time}] ${msg.text}`;
-      chatMessages.appendChild(msgEl);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    });
-    chatInput.addEventListener('keypress', e => {
-      if (e.key === 'Enter') chatSendBtn.click();
-    });
-  </script>
-
-  <!-- Tawk.to live chat -->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/6887447e48705719206420f0/1j18673j7';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
-
   <div id="bottom-banner">© 2025 Game Satoshi. All rights reserved.</div>
+
+<script>
+  const pageUrl = encodeURIComponent("https://janki777.github.io/GameSatoshi/");
+  const pageTitle = encodeURIComponent("Check out Game Satoshi - Free HTML5 Games!");
+
+  function shareFacebook() {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    window.open(url, "_blank", "width=600,height=400");
+  }
+
+  function shareTwitter() {
+    const url = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+    window.open(url, "_blank", "width=600,height=400");
+  }
+
+  function shareTelegram() {
+    const url = `https://t.me/share/url?url=${pageUrl}&text=${pageTitle}`;
+    window.open(url, "_blank");
+  }
+</script>
 
 </body>
 </html>
