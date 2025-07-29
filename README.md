@@ -25,7 +25,7 @@ All games run instantly without downloads or signups.
 ## 💰 Donations (Optional)
 
 - **Bitcoin (BTC):** `bc1qv3pzn8ndf9wyxysgr2ruzl0xrnqhlu76h5fpqf`  
-- **Solana (SOL):** *(Add your address here if you want)*
+- **Solana (SOL):** `7FiS8Wxf9ntZ3JuoSEu2RLjT2oNVUETNhvdy897xfXkC`
 
 Your support helps us grow and bring you more exciting games!
 
