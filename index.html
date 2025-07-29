@@ -44,12 +44,22 @@
     max-width: 900px;
     margin: auto;
   }
+  /* شريط الصور الستة متحرك */
   .header-wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    animation: fadeSlideIn 1.5s forwards;
+    animation: marqueeImages 20s linear infinite;
+    margin-bottom: 20px;
+  }
+  @keyframes marqueeImages {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-20%);
+    }
   }
   .icon-column {
     display: flex;
@@ -66,32 +76,17 @@
     width: 80px;
     border-radius: 12px;
     box-shadow: 0 0 15px #74b9ffaa;
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeSlideIn 1.5s forwards;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
   }
-  /* تدرج التاخير للصور */
-  .icon-column.left img:nth-child(1) { animation-delay: 0.2s; }
-  .icon-column.left img:nth-child(2) { animation-delay: 0.4s; }
-  .icon-column.left img:nth-child(3) { animation-delay: 0.6s; }
   .logo {
     width: 140px;
     border-radius: 20px;
     box-shadow: 0 0 30px #74b9ffaa;
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeSlideIn 1.5s forwards;
-    animation-delay: 0.8s;
-  }
-  .icon-column.right img:nth-child(1) { animation-delay: 1s; }
-  .icon-column.right img:nth-child(2) { animation-delay: 1.2s; }
-  .icon-column.right img:nth-child(3) { animation-delay: 1.4s; }
-
-  @keyframes fadeSlideIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
   }
   header h1 {
     margin-top: 20px;
@@ -284,6 +279,12 @@
     font-size: 1.1rem;
     z-index: 9999;
   }
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>
 </head>
 <body>
@@ -322,6 +323,9 @@
       </a>
       <a href="https://t.me/Gamesatoshi" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://x.com/GameSatoshihtml" target="_blank" rel="noopener noreferrer" aria-label="X Profile">
+        <i class="fab fa-twitter"></i> X
       </a>
     </div>
     <div class="address-block">
