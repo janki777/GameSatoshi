@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Game Satoshi – Premium HTML5 Games</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #d1e8ff;
+    overflow-x: hidden;
+  }
+  #top-banner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #061a40cc;
+    color: #a3c9ff;
+    font-weight: 600;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 9999;
+  }
+  #top-banner span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+  header {
+    padding: 140px 20px 60px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+  }
+  /* شريط الصور الستة متحرك */
+  .header-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    animation: marqueeImages 20s linear infinite;
+    margin-bottom: 20px;
+  }
+  @keyframes marqueeImages {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-20%);
+    }
+  }
+  .icon-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .icon-column.left {
+    margin-right: 10px;
+  }
+  .icon-column.right {
+    margin-left: 10px;
+  }
+  .icon-column img {
+    width: 80px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #74b9ffaa;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  }
+  .logo {
+    width: 140px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #74b9ffaa;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
+  }
+  header h1 {
+    margin-top: 20px;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #74b9ff;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 1.6s;
+  }
+  header p {
+    margin-top: 15px;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #a3c9ffdd;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 1.8s;
+  }
+  .social-share {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 2s;
+  }
+  .social-share button {
+    background: #2c56a0;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+  }
+  .social-share button:hover {
+    background: #436ec8;
+  }
+  .social-links {
+    margin-top: 25px;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 2.2s;
+  }
+  .social-links a {
+    color: #74b9ff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .social-links a:hover {
+    background: #74b9ff44;
+    border-color: #74b9ff;
+  }
+  .social-links i {
+    font-size: 1.5rem;
+  }
+  .address-block {
+    margin-top: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #b0cfffaa;
+    background: #0a1f3d99;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #74b9ff55;
+    opacity: 0;
+    animation: fadeSlideIn 2s forwards;
+    animation-delay: 2.4s;
+  }
+  .address-block strong {
+    color: #74b9ffdd;
+  }
+  .games-grid {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .game-card {
+    background: #122a4aee;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px #0e1e35cc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px #74b9ffbb;
+  }
+  .game-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .game-card h3 {
+    margin: 15px 0 10px;
+    padding: 0 20px;
+    color: #82aaff;
+  }
+  .btn-play {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px;
+    background: #74b9ff;
+    color: #0b2345;
+    font-weight: 700;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 0 15px #74b9ffaa;
+    transition: background 0.3s ease;
+  }
+  .btn-play:hover {
+    background: #4f7ac9;
+    color: #e3eaff;
+    box-shadow: 0 0 20px #4f7ac9;
+  }
+  .news-section {
+    max-width: 900px;
+    background: #0e254edd;
+    margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #5b85ffbb;
+    color: #c0d8ff;
+  }
+  .news-section h2 {
+    text-align: center;
+    font-weight: 700;
+    color: #74b9ff;
+    margin-bottom: 25px;
+  }
+  .news-article {
+    border-bottom: 1px solid #4a7ecb44;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  .news-article:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .news-article h3 {
+    color: #a3c9ff;
+    margin-bottom: 8px;
+  }
+  .news-article p {
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  .news-article small {
+    color: #7599d9;
+    font-style: italic;
+  }
+  .news-motivation {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #74b9ffcc;
+  }
+  #bottom-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg, #74b9ff, #436ec8);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 -5px 15px #436ec833;
+    font-size: 1.1rem;
+    z-index: 9999;
+  }
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div id="top-banner">
+    <span>🎮 Game Satoshi ($GAME) – Free HTML5 Games | Powered by Solana | BTC: bc1qv3pzn8ndf9wyxysgr2ruzl0xrnqhlu76h5fpqf | Latest: "Sony has filed a lawsuit against Tencent in a U.S. court, accusing the upcoming game Light of Motiram of being a direct copy of the Horizon series in terms of design and artistic style. Sony seeks to halt the game's distribution and is demanding financial compensation."</span>
+  </div>
+
+  <header>
+    <div class="header-wrapper">
+      <div class="icon-column left">
+        <img src="game_icon1.jpg" alt="Game Icon 1" />
+        <img src="game_icon2.jpg" alt="Game Icon 2" />
+        <img src="game_icon3.jpg" alt="Game Icon 3" />
+      </div>
+      <img src="GameSatoshi2.jpg" alt="Game Satoshi Logo" class="logo" />
+      <div class="icon-column right">
+        <img src="game_icon4.jpg" alt="Game Icon 4" />
+        <img src="game_icon5.jpg" alt="Game Icon 5" />
+        <img src="game_icon6.jpg" alt="Game Icon 6" />
+      </div>
+    </div>
+    <h1>Welcome to Game Satoshi</h1>
+    <p>Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.<br/>
+       Powered by the Game Satoshi ($GAME) ecosystem on Solana. Dive into the future of decentralized gaming!</p>
+
+    <div class="social-share">
+      <button onclick="shareFacebook()" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i> Share</button>
+      <button onclick="shareTwitter()" aria-label="Share on Twitter"><i class="fab fa-twitter"></i> Tweet</button>
+      <button onclick="shareTelegram()" aria-label="Share on Telegram"><i class="fab fa-telegram-plane"></i> Send</button>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61578506331280" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook-square"></i> Facebook
+      </a>
+      <a href="https://t.me/Gamesatoshi" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://x.com/GameSatoshihtml" target="_blank" rel="noopener noreferrer" aria-label="X Profile">
+        <i class="fab fa-twitter"></i> X
+      </a>
+    </div>
+    <div class="address-block">
+      <div><strong>Solana:</strong> 7FiS8Wxf9ntZ3JuoSEu2RLjT2oNVUETNhvdy897xfXkC</div>
+      <div><strong>Bitcoin:</strong> bc1qv3pzn8ndf9wyxysgr2ruzl0xrnqhlu76h5fpqf</div>
+    </div>
+  </header>
+
+  <section class="games-grid">
+    <!-- Stack Jump -->
+    <article class="game-card">
+      <img src="game1.jpg" alt="Stack Jump" />
+      <h3>Stack Jump</h3>
+      <a href="game1.html" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- Rolling Ball -->
+    <article class="game-card">
+      <img src="game2.jpg" alt="Rolling Ball" />
+      <h3>Rolling Ball</h3>
+      <a href="game2.html" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- Tunnel Rush -->
+    <article class="game-card">
+      <img src="game3.jpg" alt="Tunnel Rush" />
+      <h3>Tunnel Rush</h3>
+      <a href="game3.html" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- Moto X3M -->
+    <article class="game-card">
+      <img src="moto-x3m.jpg" alt="Moto X3M" />
+      <h3>Moto X3M</h3>
+      <a href="https://www.gameflare.com/online-game/moto-x3m/" target="_blank" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- MR RACER -->
+    <article class="game-card">
+      <img src="mr-racer.jpg" alt="MR RACER - Car Racing" />
+      <h3>MR RACER - Car Racing</h3>
+      <a href="https://www.gameflare.com/online-game/mr-racer-car-racing/" target="_blank" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- Sprunki Shifted Remastered -->
+    <article class="game-card">
+      <img src="sprunki.jpg" alt="Sprunki Shifted Remastered" />
+      <h3>Sprunki Shifted Remastered</h3>
+      <a href="https://www.gameflare.com/online-game/sprunki-shifted-remastered/" target="_blank" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- DownHill Rush -->
+    <article class="game-card">
+      <img src="downhill.jpg" alt="DownHill Rush" />
+      <h3>DownHill Rush</h3>
+      <a href="https://www.gameflare.com/online-game/downhill-rush/" target="_blank" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- Uphill Rush -->
+    <article class="game-card">
+      <img src="uphill.jpg" alt="Uphill Rush" />
+      <h3>Uphill Rush</h3>
+      <a href="https://www.gameflare.com/online-game/uphill-rush/" target="_blank" class="btn-play">Play Now</a>
+    </article>
+
+    <!-- Westland Survival -->
+    <article class="game-card">
+      <img src="westland.jpg" alt="Westland Survival" />
+      <h3>Westland Survival</h3>
+      <a href="https://www.gameflare.com/online-game/westland-survival/" target="_blank" class="btn-play">Play Now</a>
+    </article>
+  </section>
+
+  <section class="news-section">
+    <h2>Latest Game News</h2>
+    <article class="news-article">
+      <h3>🚀 GTA6 Announcement Coming Soon!</h3>
+      <p>Get ready for an epic new chapter with groundbreaking features and stunning graphics.</p>
+      <small>Published on July 27, 2025</small>
+    </article>
+    <article class="news-article">
+      <h3>🔥 Moto X3M New Update Released</h3>
+      <p>New challenging levels await all bike enthusiasts. Push your limits and win!</p>
+      <small>Published on July 25, 2025</small>
+    </article>
+    <article class="news-article">
+      <h3>🎮 Monthly Tunnel Rush Events</h3>
+      <p>Join the monthly events and earn exclusive rewards by beating high scores.</p>
+      <small>Published on July 20, 2025</small>
+    </article>
+    <p class="news-motivation">Keep playing, keep winning, and stay tuned for more exciting updates!</p>
+  </section>
+
+  <div id="bottom-banner">© 2025 Game Satoshi. All rights reserved.</div>
+
+<script>
+  const pageUrl = encodeURIComponent("https://janki777.github.io/GameSatoshi/");
+  const pageTitle = encodeURIComponent("Check out Game Satoshi - Free HTML5 Games!");
+
+  function shareFacebook() {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    window.open(url, "_blank", "width=600,height=400");
+  }
+
+  function shareTwitter() {
+    const url = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+    window.open(url, "_blank", "width=600,height=400");
+  }
+
+  function shareTelegram() {
+    const url = `https://t.me/share/url?url=${pageUrl}&text=${pageTitle}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
