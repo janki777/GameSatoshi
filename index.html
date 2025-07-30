@@ -382,6 +382,16 @@
     <h1>Welcome to Game Satoshi</h1>
     <p>Experience high-quality HTML5 games instantly in your browser – no downloads, no signups.<br/>
        Powered by the Game Satoshi ($GAME) ecosystem on Solana. Dive into the future of decentralized gaming!</p>
+    <p id="datetime" style="margin-top:10px; font-size: 1.1rem;">🕒 Loading time...</p>
+
+    <div style="background:#4f7ac9; padding:10px 20px; border-radius:14px; margin-top:15px;">
+      📣 <strong>New:</strong> Win <strong>$GAME</strong> tokens when you score above 1000 in <em>Tunnel Rush!</em>
+    </div>
+
+    <p id="visitor-count" style="margin-top:12px;">👁️ Visitors Online: <span id="visitors">12</span></p>
+
+    <button onclick="randomGame()" class="btn-play" style="margin-top: 20px;">🎲 Try Random Game</button>
+
 
     <div class="social-share">
       <button onclick="shareFacebook()" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i> Share</button>
@@ -556,6 +566,36 @@
   function shareTelegram() {
     const url = `https://t.me/share/url?url=${pageUrl}&text=${pageTitle}`;
     window.open(url, "_blank");
+  }
+</script>
+
+
+<script>
+  // Show current date and time
+  setInterval(() => {
+    const now = new Date();
+    document.getElementById("datetime").innerText = "🕒 " + now.toLocaleString();
+  }, 1000);
+
+  // Simulate random visitor count
+  setInterval(() => {
+    const visitors = Math.floor(Math.random() * 40) + 5;
+    document.getElementById("visitors").innerText = visitors;
+  }, 5000);
+
+  // Random game button
+  function randomGame() {
+    const games = [
+      "game1.html", "game2.html", "game3.html",
+      "https://www.gameflare.com/online-game/moto-x3m/",
+      "https://www.gameflare.com/online-game/mr-racer-car-racing/",
+      "https://www.gameflare.com/online-game/sprunki-shifted-remastered/",
+      "https://www.gameflare.com/online-game/downhill-rush/",
+      "https://www.gameflare.com/online-game/uphill-rush/",
+      "https://www.gameflare.com/online-game/westland-survival/"
+    ];
+    const random = games[Math.floor(Math.random() * games.length)];
+    window.open(random, "_blank");
   }
 </script>
 
