@@ -26,6 +26,7 @@ All games run instantly without downloads or signups.
 
 - **Bitcoin (BTC):** `bc1qv3pzn8ndf9wyxysgr2ruzl0xrnqhlu76h5fpqf`  
 - **Solana (SOL):** `7FiS8Wxf9ntZ3JuoSEu2RLjT2oNVUETNhvdy897xfXkC`
+- **Ethereum (ETH):** `0x657c9Fd9BD124FbFfcd8a705E07595e971C89858`
 
 Your support helps us grow and bring you more exciting games!
 
