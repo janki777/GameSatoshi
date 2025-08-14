@@ -20,7 +20,7 @@ All games run instantly without downloads or signups.
 
 - 🌍 Website: [Game Satoshi on GitHub Pages](https://janki777.github.io/GameSatoshi)  
 - 📘 Facebook: [Game Satoshi Page](https://www.facebook.com/profile.php?id=61578506331280)  
-- 📢 Telegram: [@Gamesatoshi](https://https://t.me/gamesatoshi1)  
+- 📢 Telegram: [@Gamesatoshi](https://t.me/gamesatoshi1)  
 
 ## 💰 Donations (Optional)
 
